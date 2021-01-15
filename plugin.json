@@ -1,0 +1,335 @@
+{
+    "version": "1.000",
+    "name": "custom.python.exchange",
+    "metricGroup": "custom.python.exchange",
+    "type": "python",
+    "entity": "PROCESS_GROUP_INSTANCE",
+	"technologies": [],
+    "source": {
+        "package": "MS_Exchange",
+        "className": "MSExchange",
+		"install_requires" : ["pywin32"],      
+        "activation": "Singleton"
+    },
+    "properties": [{
+        "key": "debug",
+        "type": "String"
+    }],
+    "configUI": {
+        "displayName": "MS Exchange Metrics",
+        "properties": [{
+            "key": "debug",
+            "displayName": "Debug Log Level",
+            "displayOrder": 1,
+            "displayHint": "true"
+        }]
+    },
+    "metrics": [
+        {
+            "timeseries": {
+                "key": "ad_ldap_rt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "ADAccess Domain Controllers - LDAP Read Time",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange ADAccess Domain Controllers",
+                "counter": "LDAP Read Time"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "ad_ldap_st",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "ADAccess Domain Controllers - LDAP Search Time",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange ADAccess Domain Controllers",
+                "counter": "LDAP Search Time"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "ad_ldap_sto",
+                "unit": "Count",
+                "aggregation": "max",
+                "displayname": "ADAccess Domain Controllers - LDAP Searches timed out per minute",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange ADAccess Domain Controllers",
+                "counter": "LDAP Searches timed out per minute"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "ad_ldap_lo",
+                "unit": "Count",
+                "aggregation": "max",
+                "displayname": "ADAccess Domain Controllers - Long running LDAP operations/Min",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange ADAccess Domain Controllers",
+                "counter": "Long running LDAP operations/Min"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "adp_ldap_rt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "ADAccess Processes - LDAP Read Time",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange ADAccess Processes",
+                "counter": "LDAP Read Time"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "adp_ldap_st",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "ADAccess Processes - LDAP Search Time",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange ADAccess Processes",
+                "counter": "LDAP Search Time"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "db_io_rlt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "Database - I/O Read Avg. Latency",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange Database ==> Instances",
+                "counter": "I/O Database Reads (Attached) Average Latency"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "db_io_wlt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "Database - I/O Write Avg. Latency",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange Database ==> Instances",
+                "counter": "I/O Database Writes (Attached) Average Latency"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "rpc_avg_lt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "RPC Client Access - RPC Averaged Latency",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange RpcClientAccess",
+                "counter": "RPC Averaged Latency"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "rpc_reqs",
+                "unit": "Count",
+                "aggregation": "Max",
+                "displayname": "RPC Client Access - RPC Requests",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange RpcClientAccess",
+                "counter": "RPC Requests"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "rpc_active_usr",
+                "unit": "Count",
+                "aggregation": "Max",
+                "displayname": "RPC Client Access - Active User Count",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange RpcClientAccess",
+                "counter": "Active User Count"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "rpc_conn_count",
+                "unit": "Count",
+                "aggregation": "Max",
+                "displayname": "RPC Client Access - Connection Count",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange RpcClientAccess",
+                "counter": "Connection Count"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "rpc_ops_ps",
+                "unit": "PerSecond",
+                "aggregation": "avg",
+                "displayname": "RPC Client Access - RPC Operations/sec",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange RpcClientAccess",
+                "counter": "RPC Operations/sec"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "is_rpc_reqs",
+                "unit": "Count",
+                "aggregation": "max",
+                "displayname": "Information Store - RPC Requests",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchangeIS Store",
+                "counter": "RPC Requests"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "is_rpc_ops_ps",
+                "unit": "PerSecond",
+                "aggregation": "avg",
+                "displayname": "Information Store - RPC Operations/sec",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchangeIS Store",
+                "counter": "RPC Operations/sec"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "is_rpc_avg_lt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "Information Store - RPC Avg. Latency",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchangeIS Store",
+                "counter": "RPC Average Latency"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "is_client_rpc_avg_lt",
+                "unit": "MilliSecond",
+                "aggregation": "avg",
+                "displayname": "Information Store Client Type - RPC Avg. Latency",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchangeIS Client Type",
+                "counter": "RPC Average Latency"
+            }
+        },
+        {
+            "timeseries": {
+                "key": "web_c_unique_user",
+                "unit": "Count",
+                "aggregation": "Max",
+                "displayname": "OWA - Current Unique Users",
+                "dimensions": [
+                    "rx_pid",
+                    "Instance"
+                ]
+            },
+            "source": {
+                "process_name": "mqsvc.exe",
+                "object": "MSExchange OWA",
+                "counter": "Current Unique Users"
+            }
+        }
+    ]	
+}
